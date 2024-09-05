@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <title>Bugatti</title>
+</head>
+<style>
+    html.lenis,
+    html.lenis body {
+        height: auto;
+    }
+
+    .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+        overflow: hidden;
+    }
+
+    .lenis.lenis-smooth iframe {
+        pointer-events: none;
+    }
+
+    #loading-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    #loading-screen video {
+        width: 100%;
+        height: auto;
+    }
+
+    .card1 {
+        background-image: url(https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2012/02/2013-Bugatti-Veyron-Grand-Sport-Vitesse-placement-626x382.jpg?crop=1.00xw:0.926xh;0,0.0743xh&amp;resize=700:*);
+        width: 545px;
+        height: 300px;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
+    .card1::before {
+        content: '';
+        background-color: #000000a1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .card2 {
+        background-image: url(https://hips.hearstapps.com/hmg-prod/images/14bugatti-divo-99leadgallery-1535035005.jpg?crop=0.941xw:0.864xh;0.0423xw,0.136xh&resize=700:*);
+        width: 545px;
+        height: 300px;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
+    .card2::before {
+        content: '';
+        background-color: #000000a1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .card3 {
+        background-image: url(https://hips.hearstapps.com/hmg-prod/images/bugatti-sur-mesure-chiron-pur-sport-106-1639069047.jpg?crop=0.766xw:0.647xh;0.234xw,0.353xh&resize=700:*);
+        width: 545px;
+        height: 300px;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
+    .card3::before {
+        content: '';
+        background-color: #000000a1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .logo {
+        transform: translateY(70px) rotateY(0deg);
+    }
+</style>
+
+<body>
+    <div id="preloader" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
+        <div class="flex flex-col justify-center items-center">
+            <img src="/images/preloader-wordmark.gif" alt="Loading..." class="w-72 mb-4">
+            <p class="opacity-[0.5] text-white text-2xl">We use sound to enhance your experience</p>
+            <div class="w-full bg-gray-800 h-2 relative">
+                <div id="progress" class="bg-blue-500 h-full absolute top-0 left-0"></div>
+            </div>
+        </div>
+    </div>
+    <div class="toload">
+        <div class="w-full h-screen flex flex-col  items-center navbar justify-between px-10 absolute  bg-white">
+            <div class="nav w-full flex justify-around items-center z-10 relative text-white">
+                <div class="nav-logo py-3">
+                    <img src="/images/pngegg.png" width="100px" alt="">
+                </div>
+                <div class="title text-2xl font-bold w-0">
+                    <p>BUGATTI</p>
+                </div>
+                <div class="nav-items">
+                    <ul class="flex gap-5 cursor-pointer">
+                        <li
+                            class="before:content-[''] before:w-0 before:h-1 before:bg-blue-700 before:absolute before:bottom-4 hover:before:w-[50px] hover:before:h-1 before:transition-all before:rounded-lg">
+                            Models</li>
+                        <li
+                            class="before:content-[''] before:w-0 before:h-1 before:bg-blue-700 before:absolute before:bottom-4 hover:before:w-[50px] hover:before:h-1 before:transition-all before:rounded-lg ">
+                            Dealers</li>
+                        <li
+                            class="before:content-[''] before:w-0 before:h-1 before:bg-blue-700 before:absolute before:bottom-4 hover:before:w-[50px] hover:before:h-1 before:transition-all before:rounded-lg ">
+                            About</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="video absolute top-0 left-0 w-full h-full">
+                <video
+                    src="https://d2ox13tjqpxop5.cloudfront.net/BUGATTI-2024/Homepage/Bugatti_Tourbillon_00_HP_Intro_d_small.mp4"
+                    class="object-cover w-full h-[953px]" autoplay loop muted></video>
+            </div>
+            <div class="text-center w-1/2 headings p-3  flex flex-col gap-5 z-10 relative text-white">
+                <p class="text-xl">POUR L‘ÉTERNITÉ</p>
+                <h2 class="text-5xl font-bold">TOURBILLON</h2>
+                <p class="text-xl">This is an automobile made not for the present, or even for the future. This is for
+                    eternity.</p>
+                <button class="bg-blue-600 p-3 text-xl w-1/3 mx-auto">Discover the Tourbillon</button>
+            </div>
+            <div class="footer flex flex-col relative z-10 text-white w-2/4">
+                <div class="footer-top flex w-full justify-between items-center px-4 py-5 bg-[#0000009e]">
+                    <p class="text-sm">ENGLISH</p>
+                    <img src="/images/logo.png" width="25px" alt="">
+                    <p class="text-sm">AUDIO OFF</p>
+                </div>
+                <div class="footer-bottom flex w-full justify-center gap-2 items-center my-2 px-4 py-5 bg-[#0000009e]">
+                    <div class="fule flex gap-2">
+                        <img src="/images/fc.svg" alt="">
+                        <p>21.47 - 25.19 1/100 km
+                        </p>
+                    </div>
+                    <div class="fule flex gap-2">
+                        <img src="/images/c02.svg" alt="">
+                        <p>486.72 - 571.63 g/km
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full absolute top-[953px] bg-zinc-900">
+            <div class="parent w-full h-[1400vh] relative ">
+                <div class="w-full h-screen  sticky top-0 left-0 overflow-hidden">
+                    <canvas class="w-full h-screen" id="canvas"></canvas>
+                    <div class="absolute animate-1 z-[2] text-white bottom-[20rem] translate-y-8 w-1/2 left-[45.5rem]">
+                        <h1 class="leading-20 font-[100] text-3xl">&copy; Bugatti 2024</h1>
+                        <h1 class="text-3xl">DRIVING EXCELLENCE -> FUELING INNOVATION</h1>
+                    </div>
+                    <div
+                        class="absolute animate-2 flex z-[2] text-white bottom-10 w-1/2 right-10 text-right opacity-0 translate-x-[-70px]">
+                        <h1 class="leading-20 font-[100] uppercase text-6xl">Unleashing Power</h1>
+                        <h1 class="text-xl w-1/2">Engineering masterpieces that command attention. Crafting automotive
+                            art
+                            that transcends speed.</h1>
+                    </div>
+
+                    <div
+                        class="absolute animate-3 z-[2] text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-[80px] text-center opacity-0">
+                        <h1 class="leading-20 font-[100] uppercase text-6xl">Defining Luxury</h1>
+                        <h1 class="text-xl">Redefining automotive excellence. Merging precision engineering with
+                            unparalleled luxury to create extraordinary experiences.</h1>
+                    </div>
+                    <div class="w-1/3 panel translate-x-full h-screen bg-white absolute right-0 top-0 z-[2] p-4">
+                        <div class="flex justify-between flex-col items-center mb-5">
+                            <div class="card3 mx-auto text-white flex flex-col justify-center">
+                                <h2 class="z-10 relative mx-3 my-3 text-4xl font-semibold ">2022 Bugatti Chiron</h2>
+                                <p class="z-10 relative  mx-3 my-3 ">The 2022 Chiron isn't only the ultimate Bugatti,
+                                    it's the ultimate car. Period. This $3 million work of art is capable of pummeling
+                                    the pavement at over 200 mph thanks to a 16-cylinder engine that features four
+                                    turbochargers and cranks out at least 1500 horsepower—the more expensive Super Sport
+                                    model is even more powerful....</p>
+                                <button
+                                    class="z-10 relative  mx-3 my-3 p-3 border-2 border-white w-1/3 hover:bg-white hover:text-black transition-all">Learn
+                                    more</button>
+                            </div>
+                            <div class="card2 mx-auto my-3 text-white flex flex-col justify-center">
+                                <h2 class="z-10 relative mx-3 my-3 text-4xl font-semibold ">2020 Bugatti Divo</h2>
+                                <p class="z-10 relative  mx-3 my-3 ">A more exotic-looking and exclusive version of the
+                                    Bugatti Chiron hypercar, the Divo is a study in aerodynamics. Its name pays homage
+                                    to French racing driver Albert Divo, who won the prestigious Targa Florio endurance
+                                    race twice in the 1920s...</p>
+                                <button
+                                    class="z-10 relative  mx-3 my-3 p-3 border-2 border-white w-1/3 hover:bg-white hover:text-black transition-all">Learn
+                                    more</button>
+                            </div>
+                            <div class="card1 mx-auto text-white flex flex-col justify-center">
+                                <h2 class="z-10 relative mx-3 my-3 text-4xl font-semibold ">2014 Bugatti Veyron</h2>
+                                <p class="z-10 relative  mx-3 my-3 ">Perhaps the greatest supercar ever, the Veyron 16.4
+                                    was for those with all the money in the world and a desire to go blisteringly fast;
+                                    we say "was," because the Veyron is no longer sold and its replacement, the Chiron,
+                                    is not yet available...</p>
+                                <button
+                                    class="z-10 relative  mx-3 my-3 p-3 border-2 border-white w-1/3 hover:bg-white hover:text-black transition-all">Learn
+                                    more</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div
+                        class="absolute animate-4 z-[20] text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl tracking-tighter opacity-0">
+                        &copy; Bugatti <span class="line w-10 h-1 bg-white inline-block"></span> 2024
+                    </div>
+                    <div class="animate-6 absolute z-[20] text-white  top-[270px] opacity-0 right-[600px] logo ">
+                        <img src="/images/pngegg.png" class="logo" alt="">
+                    </div>
+                    <div
+                        class="animate-5 absolute z-[10] text-white bg-[#000000ad] top-0 w-full h-screen translate-y-[771px] opacity-0 overflow-hidden ">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+
+        const preloader = document.getElementById("preloader");
+    const progress = document.getElementById("progress");
+
+    // Function to simulate loading progress
+    function simulateLoading() {
+        let width = 0;
+        const interval = setInterval(function() {
+            if (width >= 100) {
+                clearInterval(interval);
+                preloader.style.display = "none"; // Hide preloader when loading is done
+            } else {
+                width++;
+                progress.style.width = width + "%";
+            }
+        }, 30); // Adjust this value to control loading speed
+    }
+
+    // Call the function to simulate loading
+    simulateLoading();
+
+    // Ensure preloader hides after a fixed time (e.g., 30 seconds) even if loading is not complete
+    setTimeout(() => {
+        preloader.style.display = "none";
+    }, 30000); // 30 seconds
+
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const canvas = document.querySelector("#canvas");
+        const context = canvas.getContext('2d');
+        const frames = {
+            currentIndex: 0,
+            maxIndex: 756
+        };
+        let imagesLoaded = 0;
+        let images = [];
+
+        // Function to hide the video
+
+        function preloadImages() {
+            for (let i = 1; i <= frames.maxIndex; i++) {
+                const imageUrl = `./frames/frame_${i.toString().padStart(4, "0")}.jpeg`;
+                const img = new Image();
+                img.src = imageUrl;
+
+                img.onload = () => {
+                    imagesLoaded++;
+                    if (imagesLoaded === frames.maxIndex) {
+                        // Hide the video once images are loaded
+                        // hideVideo();
+                        loadImage(frames.currentIndex);
+                        startAnimation(); // Call the function to start animation
+                    }
+                };
+
+                img.onerror = () => {
+                    console.error(`Failed to load image: ${imageUrl}`);
+                };
+
+                images.push(img);
+            }
+        }
+
+        function loadImage(index) {
+            if (index >= 0 && index <= frames.maxIndex) {
+                const img = images[index];
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const scaleX = canvas.width / img.width;
+                const scaleY = canvas.height / img.height;
+                const scale = Math.max(scaleX, scaleY)
+
+                const newWidth = img.width * scale;
+                const newHeight = img.height * scale;
+
+                const offsetX = (canvas.width - newWidth) / 2;
+                const offsetY = (canvas.height - newHeight) / 2;
+
+                context.imageSmoothingEnabled = true;
+                context.imageSmoothingQuality = "high";
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+                // frames.currentIndex = index;
+                console.log(frames.currentIndex = index);
+            }
+        }
+
+        function startAnimation() {
+            var tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".parent",
+                    start: "top top",
+                    end: "bottom bottom", // Use 'end' instead of 'bottom' for proper scrolling
+                    scrub: 2,
+                }
+            })
+            function updateframe(index) {
+                return {
+                    currentIndex: index,
+                    ease: "linear",
+                    onUpdate: function () {
+                        loadImage(Math.floor(frames.currentIndex));
+                    }
+                }
+            }
+
+            tl
+                .to(frames, updateframe(100), "a")
+                .to(".animate-1", { opacity: 0, y: 0, ease: "linear" }, "a")
+                .to(frames, updateframe(131), "second")
+                .to(".animate-2", { opacity: 1, x: 0, ease: "linear" }, "second")
+                .to(frames, updateframe(161), "third")
+                .to(".animate-2", { opacity: 1, ease: "linear" }, "third")
+                .to(frames, updateframe(192), "fourth")
+                .to(".animate-2", { opacity: 0, ease: "linear" }, "fourth")
+                .to(frames, updateframe(223), "fifth")
+                .to(".animate-3", { opacity: 1, y: 0, ease: "linear" }, "fifth")
+                .to(frames, updateframe(253), "sixth")
+                .to(".animate-3", { opacity: 1, ease: "linear" }, "sixth")
+                .to(frames, updateframe(284), "seventh")
+                .to(".animate-3", { opacity: 0, y: 50, ease: "linear" }, "seventh")
+                .to(frames, updateframe(314), "eighth")
+                .to(".panel", { x: "0%", ease: "expo" }, "eighth")
+                .to(frames, updateframe(325), "ninth")
+                .to(".panel", { x: "0%", ease: "expo" }, "ninth")
+                .to(frames, updateframe(345), "tenth")
+                .to(".panel", { opacity: 0, ease: "linear" }, "tenth")
+                .to(frames, updateframe(386), "eleventh")
+                .to(".animate-5", { y: 0, opacity: 1, ease: "linear" }, "eleventh")
+                .to(frames, updateframe(406), "eleventh")
+                .to("canvas", { ease: "linear" }, "eleventh")
+                .to(frames, updateframe(436), "tweleth")
+                .to(".animate-4", { opacity: 1, ease: "expo" }, "tweleth")
+                .to(frames, updateframe(467), "tweleth")
+                .to(".line", { width: 200, ease: "expo" }, "tweleth")
+                .to(frames, updateframe(488), "fourteen")
+                .to(".animate-4", { scale: 2, ease: "circ" }, "fourteen")
+                .to(frames, updateframe(515), "fifteen")
+                .to(".animate-4", { scale: 1, opacity: 0, ease: "circ" }, "fifteen")
+                .to(frames, updateframe(550), "sixteen")
+                .to(".animate-6", { y: 0, opacity: 1, rotationY: 360, ease: "circ" }, "sixteen")
+                .to(frames, updateframe(600), "seveteen")
+                .to(".animate-5", { y: 1000, opacity: 0, ease: "circ" }, "seveteen")
+                .to(frames, updateframe(650), "eighteen")
+                .to(".animate-6", { y: 70, opacity: 0, rotationY: 0, ease: "circ" }, "eighteen")
+                .to(frames, updateframe(753), "ninteen")
+            // .to(".animate-6", { y:70, opacity:0, rotationY: 0, ease: "circ" }, "eighteen")
+
+        }
+
+        const lenis = new Lenis()
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+
+        window.addEventListener("resize", function () {
+            loadImage(Math.floor(frames.currentIndex))
+        })
+
+        preloadImages();
+        gsap.to('.page2', {
+            y: -550,
+            scrollTrigger: {
+                trigger: ".page2",
+                start: "top 100%",
+                end: "bottom 20%",
+                // markers:true,
+            },
+
+        })
+
+    });
+
+</script>
+
+</html>
