@@ -330,31 +330,35 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
 
-
         const preloader = document.getElementById("preloader");
-        const progress = document.getElementById("progress");
+const progress = document.getElementById("progress");
 
-        // Function to simulate loading progress
-        function simulateLoading() {
-            let width = 0;
-            const interval = setInterval(function () {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    preloader.style.display = "none"; // Hide preloader when loading is done
-                } else {
-                    width++;
-                    progress.style.width = width + "%";
-                }
-            }, 30); // Adjust this value to control loading speed
+// Function to simulate loading progress
+function simulateLoading() {
+    let width = 0;
+    const totalDuration = 60000; // Total duration of 1 minute (60,000 milliseconds)
+    const intervalDuration = 10; // Interval duration in milliseconds
+    const increment = 100 / (totalDuration / intervalDuration); // Increment per interval
+
+    const interval = setInterval(function () {
+        if (width >= 100) {
+            clearInterval(interval);
+            preloader.style.display = "none"; // Hide preloader when loading is done
+        } else {
+            width += increment;
+            progress.style.width = Math.min(width, 100) + "%"; // Ensure width does not exceed 100%
         }
+    }, intervalDuration);
+}
 
-        // Call the function to simulate loading
-        simulateLoading();
+// Call the function to simulate loading
+simulateLoading();
 
-        // Ensure preloader hides after a fixed time (e.g., 30 seconds) even if loading is not complete
-        setTimeout(() => {
-            preloader.style.display = "none";
-        }, 100000); // 30 seconds
+// Ensure preloader hides after a fixed time (1 minute) even if loading is not complete
+setTimeout(() => {
+    preloader.style.display = "none";
+}, 60000); // 1 minute (60,000 milliseconds)
+
 
 
         gsap.registerPlugin(ScrollTrigger);
