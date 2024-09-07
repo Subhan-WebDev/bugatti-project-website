@@ -102,10 +102,19 @@
     .logo {
         transform: translateY(70px) rotateY(0deg);
     }
+
+    .page3-1 {
+        background-position-x: -500px;
+    }
+
+    .page3-2 {
+        background-position-y: -199px;
+        ;
+    }
 </style>
 
 <body>
-    <div id="preloader" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
+    <!-- <div id="preloader" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
         <div class="flex flex-col justify-center items-center">
             <img src="/images/preloader-wordmark.gif" alt="Loading..." class="w-72 mb-4">
             <p class="opacity-[0.5] text-white text-2xl">We use sound to enhance your experience</p>
@@ -113,9 +122,9 @@
                 <div id="progress" class="bg-blue-500 h-full absolute top-0 left-0"></div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="toload">
-        <div class="w-full h-screen flex flex-col  items-center navbar justify-between px-10 absolute  bg-white">
+        <div class="w-full h-screen flex flex-col  items-center navbar justify-between px-10   bg-white">
             <div class="nav w-full flex justify-around items-center z-10 relative text-white">
                 <div class="nav-logo py-3">
                     <img src="/images/pngegg.png" width="100px" alt="">
@@ -169,7 +178,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full absolute top-[953px] bg-zinc-900">
+        <div class="w-full  top-[953px] bg-zinc-900">
             <div class="parent w-full h-[1400vh] relative ">
                 <div class="w-full h-screen  sticky top-0 left-0 overflow-hidden">
                     <canvas class="w-full h-screen" id="canvas"></canvas>
@@ -242,7 +251,76 @@
 
             </div>
         </div>
+        <div class="page3 relative">
+            <div
+                class=" page3-2  z-10 h-screen justify-end relative flex bg-[url(https://hips.hearstapps.com/hmg-prod/images/bugatti-sur-mesure-chiron-pur-sport-106-1639069047.jpg?crop=0.766xw:0.647xh;0.234xw,0.353xh&resize=2048:*)] bg-no-repeat ">
+                <div class="page3-2-text flex  flex-col justify-between p-6 w-1/3 bg-white">
+                    <div class="top">
 
+                        <h3 class="text-3xl font-bold my-5">Overview</h3>
+                        <p class="w-full font-semibold ">
+
+                            The 2022 Chiron isn't only the ultimate Bugatti, it's the ultimate car. Period. This $3
+                            million
+                            work
+                            of art is capable of pummeling the pavement at over 200 mph thanks to a 16-cylinder engine
+                            that
+                            features four turbochargers and cranks out at least 1500 horsepower—the more expensive Super
+                            Sport
+                            model is even more powerful. The Chiron's cabin is just as artfully designed as its
+                            exterior,
+                            and it
+                            coddles occupants in fine materials that help justify its price tag. But let's be honest,
+                            people
+                            are
+                            really paying for the performance here. Those looking for modern conveniences (think Apple
+                            CarPlay)
+                            or driver-assistance tech, they won't find them here, but after driving this monster, they
+                            likely
+                            won't care about such minor drawbacks.
+                        </p>
+                        <button
+                            class="my-3 mt-4 border-2 px-5 w-60 font-bold text-xl py-2 border-black hover:text-white hover:bg-black transition-all">Learn
+                            More</button>
+                    </div>
+                    <h2 class="my-6 text-4xl font-bold self-center font-mono">2022 Bugatti Chiron</h2>
+                </div>
+            </div>
+            <div
+                class="page3-1 absolute z-[2] top-0 h-screen justify-end flex bg-[url(https://hips.hearstapps.com/hmg-prod/images/2026-bugatti-tourbillon-104-66709d54aa287.jpg?crop=0.819xw:0.692xh;0.0994xw,0.185xh&resize=2048:*)] bg-no-repeat ">
+                <div class="page3-text flex flex-col justify-between p-6 w-1/3 bg-white">
+                    <div class="top flex flex-col gap-3">
+
+                        <h3 class="text-3xl font-bold my-5">Overview</h3>
+                        <p class="w-full font-semibold p-2">
+                            The 2026 Tourbillon is the first completely new design from Bugatti since the brand merged
+                            with
+                            electric sports car maker Rimac in 2021, and it replaces the mega-powered Chiron in the
+                            company's
+                            lineup. With a staggering price tag of $4.6 million, customers will expect a special
+                            vehicle,
+                            and
+                            they'll find it in the Tourbillon's sculpted curves and custom-made V-16 engine. The
+                            Tourbillon
+                            adds
+                            three electric motors to the multi-cylinder gas powerplant, for an astounding total of 1775
+                            horsepower—more than any previous Bugatti model. The interior is all about the tactile
+                            experience,
+                            with luxury materials like leather, machined metal, and crystal. The Tourbillon sets aside
+                            ideas
+                            of
+                            self-driving and screen-heavy in-car entertainment in favor of an analog driving experience
+                            that
+                            calls back to the earliest days of the Bugatti brand, only much faster.
+                        </p>
+                        <button
+                            class="my-3 mt-4 border-2 px-5 w-60 font-bold text-xl py-2 border-black hover:text-white hover:bg-black transition-all">Learn
+                            More</button>
+                    </div>
+                    <h2 class="my-6 text-4xl font-bold self-center font-mono">2026 Bugatti Tourbillon</h2>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -254,29 +332,29 @@
 
 
         const preloader = document.getElementById("preloader");
-    const progress = document.getElementById("progress");
+        const progress = document.getElementById("progress");
 
-    // Function to simulate loading progress
-    function simulateLoading() {
-        let width = 0;
-        const interval = setInterval(function() {
-            if (width >= 100) {
-                clearInterval(interval);
-                preloader.style.display = "none"; // Hide preloader when loading is done
-            } else {
-                width++;
-                progress.style.width = width + "%";
-            }
-        }, 30); // Adjust this value to control loading speed
-    }
+        // Function to simulate loading progress
+        function simulateLoading() {
+            let width = 0;
+            const interval = setInterval(function () {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    preloader.style.display = "none"; // Hide preloader when loading is done
+                } else {
+                    width++;
+                    progress.style.width = width + "%";
+                }
+            }, 30); // Adjust this value to control loading speed
+        }
 
-    // Call the function to simulate loading
-    simulateLoading();
+        // Call the function to simulate loading
+        simulateLoading();
 
-    // Ensure preloader hides after a fixed time (e.g., 30 seconds) even if loading is not complete
-    setTimeout(() => {
-        preloader.style.display = "none";
-    }, 30000); // 30 seconds
+        // Ensure preloader hides after a fixed time (e.g., 30 seconds) even if loading is not complete
+        setTimeout(() => {
+            preloader.style.display = "none";
+        }, 100000); // 30 seconds
 
 
         gsap.registerPlugin(ScrollTrigger);
@@ -429,7 +507,28 @@
 
         })
 
+
+        gsap.to('.page3-2 .top', {
+            y: -10,
+            opacity: 0,
+            stagger: 2,
+            delay: 1,
+            yoyo: true,
+            repeat: -1, // This makes the animation repeat infinitely
+            repeatDelay: 3 // Optional: adds a delay before repeating
+        });
+
+        gsap.to('.page3-2', {
+            opacity: 0,
+            zIndex: 1,
+            delay: 1.2,
+            yoyo: true,
+            repeat: -1, // This makes the animation repeat infinitely
+            repeatDelay: 3 // Optional: adds a delay before repeating
+        });
+
     });
+
 
 </script>
 
